@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
+  <title>{{ title }} | Karol Sadkowski</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header>
-    <h1>{{ title }}</h1>
+    <h1><a href="/">Karol Sadkowski</a></h1> <!-- Static title with link to the Home page -->
     <nav>
-      <a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+      <a href="/" class="{% if page.url == '/' %}active{% endif %}">About</a>
       <a href="/projects.html" class="{% if page.url == '/projects.html' %}active{% endif %}">Projects</a>
       <a href="/photos.html" class="{% if page.url == '/photos.html' %}active{% endif %}">Photos</a>
     </nav>
