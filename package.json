@@ -1,0 +1,26 @@
+{
+  "name": "sadkowsk.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "deploy": "npm run build && npx gh-pages -d _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadkowsk/sadkowsk.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sadkowsk/sadkowsk.github.io/issues"
+  },
+  "homepage": "https://github.com/sadkowsk/sadkowsk.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
