@@ -17,6 +17,15 @@ nav a {
     text-decoration: none;
 }
 
+nav a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 main {
     padding: 20px;
 }

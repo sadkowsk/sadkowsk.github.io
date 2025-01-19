@@ -3,6 +3,6 @@ layout: layout.njk
 title: Photos
 permalink: photos.html
 ---
-# A glimpse into the places and moments that have defined my journey.
+# Places and moments that have defined my journey
 
-More soon.
+Like a journal, these photo vignettes illustrate some of my interests and past experiences in a way that my LinkedIn or CV won’t.
