@@ -1,10 +1,10 @@
 ---
 layout: layout.njk
-title: My Projects
+title: Projects
 permalink: projects.html
 ---
-
 # Projects
 
-- **Project 1**: A brief description of the project.
+Here is a showcase of the key projects I’ve worked on:
+- **Project 1**: Description of the project.
 - **Project 2**: Another project description.

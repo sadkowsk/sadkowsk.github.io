@@ -1,8 +1,8 @@
 ---
-title: About
 layout: layout.njk
+title: About
+permalink: about.html
 ---
+Welcome to my portfolio!
 
-# About This Site
-
-This site is built with Eleventy, a simple static site generator.
+Here you’ll learn about my work as an international educator—from a Senegalese community radio station to a meat packing plant in Iowa.
