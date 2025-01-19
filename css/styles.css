@@ -3,17 +3,34 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
 }
 
 header {
-    background-color: #333;
+    background-color: #3a3a3a;
     color: #fff;
-    padding: 10px 20px;
+    padding: 30px 50px;
+}
+
+header h1 {
+    font-size: 2rem; /* Adjust size of the title */
+    margin: 0;
+}
+
+header h1 a {
+    text-decoration: none; /* Remove underline from title link */
+    color: #fff;
+}
+
+nav {
+    margin-top: 20px; /* Add spacing between the title and navigation */
 }
 
 nav a {
     color: #fff;
-    margin-right: 15px;
+    margin-right: 20px;
     text-decoration: none;
 }
 
@@ -27,13 +44,20 @@ nav a:hover {
 }
 
 main {
-    padding: 20px;
+    flex: 1; /* Allow the main content to expand and fill available space */
+    padding: 30px 50px 30px 50px; /* Default padding */
+}
+
+@media (max-width: 768px) { /* For smaller screens */
+    main {
+        padding: 20px 10px 20px 10px;
+    }
 }
 
 footer {
-    background-color: #333;
+    background-color: #3a3a3a;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    margin-top: 20px;
+    margin-top: 0; /* Remove unnecessary margin to keep it at the bottom */
 }
