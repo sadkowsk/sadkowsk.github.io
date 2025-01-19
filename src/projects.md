@@ -3,8 +3,6 @@ layout: layout.njk
 title: Projects
 permalink: projects.html
 ---
-# Projects
+# A showcase of my work in education management, research, and evaluation.
 
-Here is a showcase of the key projects I’ve worked on:
-- **Project 1**: Description of the project.
-- **Project 2**: Another project description.
+More soon.

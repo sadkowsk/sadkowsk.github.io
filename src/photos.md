@@ -3,6 +3,6 @@ layout: layout.njk
 title: Photos
 permalink: photos.html
 ---
-# Photo Album
+# A glimpse into the places and moments that have defined my journey.
 
-Browse through my photo collection from various projects and travels.
+More soon.

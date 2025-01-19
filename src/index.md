@@ -1,8 +1,9 @@
 ---
-title: Welcome to Eleventy
 layout: layout.njk
+title: About
+permalink: index.html
 ---
 
-# Hello, World!
+# Welcome to my portfolio.
 
-This is my first Eleventy page.
+Here you’ll learn about my work as an international educator—from a Senegalese community radio station to a meat packing plant in Iowa.
