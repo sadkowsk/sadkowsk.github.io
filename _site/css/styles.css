@@ -55,12 +55,12 @@ nav {
 }
 
 .nav-right .quote:hover {
-    color: #f0a500; /* Highlight color on hover */
+    color: #ffb703; /* Highlight color on hover */
     text-decoration: none; /* Prevent underline */
 }
 
 .nav-right .quote:active {
-    color: #f0a500; /* Keep hover color on active/clicked state */
+    color: #ffb703; /* Keep hover color on active/clicked state */
     font-weight: normal; /* Do not turn bold on click */
 }
 
@@ -80,22 +80,22 @@ nav a i {
 
 /* Hover effect: Highlight both text and icons */
 nav a:hover {
-    color: #f0a500; /* Add a highlight color to text */
+    color: #ffb703; /* Add a highlight color to text */
 }
 
 nav a:hover i {
-    color: #f0a500; /* Ensure icons match hover color */
+    color: #ffb703; /* Ensure icons match hover color */
 }
 
 /* Keep clicked (active) buttons in highlighted color */
 nav a.active {
-    color: #f0a500;
+    color: #ffb703;
     font-weight: bold;
 }
 
 /* Ensure icons in clicked (active) links match text color */
 nav a.active i {
-    color: #f0a500;
+    color: #ffb703;
 }
 
 main {
@@ -119,4 +119,11 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 0; /* Remove unnecessary margin to keep it at the bottom */
+}
+
+body {
+    background-color: #FFFFFF; /* White */
+}
+main {
+    color: #3a3a3a;
 }
