@@ -136,6 +136,153 @@ main {
     margin-right: 50px; /* Match the text's left padding */
 }
 
+/* Projects container */
+.projects-container {
+    display: flex;
+    flex-direction: column; /* Stack project entries vertically */
+    gap: 30px; /* Space between each project entry */
+    margin-top: 20px;
+}
+
+/* Individual project entry */
+.project-entry {
+    display: flex; /* Align project title and icon side-by-side */
+    justify-content: space-between; /* Separate the text and image */
+    align-items: center; /* Center-align icon with text */
+    border-bottom: 1px solid #ccc; /* Optional: Add a divider between projects */
+    padding-bottom: 20px; /* Space under the divider */
+}
+
+/* Project info (title and caption) */
+.project-info {
+    flex: 1; /* Allow text area to take up remaining space */
+    max-width: 60%; /* Limit width of the text block */
+}
+
+.project-title {
+    font-size: 1.2rem; /* Larger text for titles */
+    font-weight: bold; /* Make titles stand out */
+    text-decoration: none; /* Remove underline for links */
+    color: #000; /* Default title color */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.project-title:hover {
+    color: #00AFB5; /* Highlight color on hover */
+}
+
+.project-caption {
+    font-size: 1rem;
+    color: #555; /* Subtle color for captions */
+    margin-top: 5px; /* Add spacing between title and caption */
+}
+
+/* Project icon (image) */
+.project-icon {
+    flex: 0 0 120px; /* Fixed size for icons */
+    width: 120px;
+    height: 120px;
+    overflow: hidden; /* Prevent large images from spilling out */
+}
+
+.project-icon img {
+    width: 100%; /* Ensure images fit the container */
+    height: 100%; /* Crop to fit square dimensions */
+    object-fit: cover; /* Ensure images are cropped proportionally */
+    border-radius: 8px; /* Optional: Rounded corners for icons */
+}
+
+/* Photos container */
+.photos-container {
+    display: flex;
+    flex-direction: column; /* Stack photo entries vertically */
+    gap: 30px; /* Space between each experience */
+    margin-top: 20px;
+}
+
+/* Individual photo entry */
+.photo-entry {
+    display: flex; /* Align text and photo grid side-by-side */
+    justify-content: space-between; /* Separate the text and photo grid */
+    align-items: flex-start; /* Align the top of the text and grid */
+    border-bottom: 1px solid #ccc; /* Optional: Divider between experiences */
+    padding-bottom: 20px;
+}
+
+/* Left-side text */
+.photo-info {
+    flex: 1;
+    max-width: 40%; /* Limit width of text block */
+}
+
+.photo-info h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.photo-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Right-side image grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create a 3x3 grid */
+    gap: 10px; /* Space between thumbnails */
+    flex: 2;
+    max-width: 60%; /* Limit the width of the grid */
+}
+
+.photo-grid a {
+    display: block;
+    position: relative;
+    overflow: hidden; /* Prevent large images from spilling out */
+    width: 130px; /* Fixed thumbnail size */
+    height: 130px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop images to fit the square dimensions */
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Lightbox functionality (hidden by default) */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
 footer {
     background-color: #3c3c3b;
     color: #fff;
