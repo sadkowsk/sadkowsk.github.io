@@ -6,10 +6,11 @@ body {
     display: flex; /* Enable Flexbox */
     flex-direction: column; /* Stack header, main, and footer vertically */
     min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    background-color: #FFFFFF; /* White */
 }
 
 header {
-    background-color: #3a3a3a;
+    background-color: #3c3c3b;
     color: #fff;
     padding: 30px 50px;
 }
@@ -43,25 +44,27 @@ nav {
     flex-shrink: 0; /* Prevent the quote from squishing when resizing */
 }
 
-.nav-right .quote {
+.nav-right .support-link {
     color: #fff; /* White by default, like other navbar text */
-    font-style: italic; /* Add emphasis */
-    font-size: 1rem; /* Ensure it matches navbar text size */
     text-decoration: none; /* Remove underline by default */
-    white-space: nowrap; /* Prevent the quote from wrapping unnecessarily */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for long quotes */
-    margin-left: 10px; /* Add a subtle left margin for further alignment */
+    font-size: 1rem; /* Ensure it matches navbar text size */
+    font-style: italic; /* Add emphasis for link text */
+    display: inline-flex; /* Align icon and text inline */
+    align-items: center; /* Vertically align icon with text */
+    margin-left: 10px; /* Add subtle spacing from adjacent navbar items */
 }
 
-.nav-right .quote:hover {
-    color: #ffb703; /* Highlight color on hover */
-    text-decoration: none; /* Prevent underline */
+.nav-right .support-link i {
+    font-size: 0.85rem; /* Slightly smaller icon for visual balance */
+    margin-left: 5px; /* Add spacing between text and icon */
 }
 
-.nav-right .quote:active {
-    color: #ffb703; /* Keep hover color on active/clicked state */
-    font-weight: normal; /* Do not turn bold on click */
+.nav-right .support-link:hover {
+    color: #ecc05b; /* Highlight color on hover */
+}
+
+.nav-right .support-link:hover i {
+    color: #ecc05b; /* Match icon hover color to text */
 }
 
 nav a {
@@ -70,6 +73,7 @@ nav a {
     text-decoration: none; /* Remove all underlining */
     font-size: 1rem; /* Adjust text/icon size */
     line-height: 1.5; /* Matches text and icon alignment */
+    font-weight: 400; /* Set a base font-weight for consistency */
 }
 
 /* Icons: Ensure they inherit hover styles */
@@ -80,27 +84,64 @@ nav a i {
 
 /* Hover effect: Highlight both text and icons */
 nav a:hover {
-    color: #ffb703; /* Add a highlight color to text */
+    color: #ecc05b; /* Add a highlight color to text */
 }
 
 nav a:hover i {
-    color: #ffb703; /* Ensure icons match hover color */
+    color: #ecc05b; /* Ensure icons match hover color */
 }
 
 /* Keep clicked (active) buttons in highlighted color */
 nav a.active {
-    color: #ffb703;
-    font-weight: bold;
+    color: #ecc05b;
+    font-weight: 700; /* Bolder weight for the active link */
 }
 
 /* Ensure icons in clicked (active) links match text color */
 nav a.active i {
-    color: #ffb703;
+    color: #ecc05b;
 }
 
 main {
     flex: 1; /* Allow the main content to expand and fill available space */
     padding: 30px 50px; /* Default padding */
+    color: #090c02; /* Dark gray text color */
+}
+
+.about-container {
+    display: flex; /* Align text and photo side-by-side */
+    justify-content: space-between; /* Add space between text and photo */
+    gap: 50px; /* Adjust spacing between text and photo */
+    align-items: flex-start; /* Align the top of the photo and text */
+}
+
+.about-text {
+    flex: 2; /* Make the text area take up more space */
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.6; /* Improve readability */
+    color: #090c02;
+    text-align: justify; /* Justify the text */
+}
+
+.about-photo {
+    flex: 1; /* Make the photo area smaller */
+    max-width: 300px; /* Control maximum image size */
+    margin-top: 40px; /* Increase distance from the header */
+}
+
+.about-photo img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px; /* Optional: Add rounded corners to the photo */
+    margin-right: 50px; /* Match the text's left padding */
+}
+
+footer {
+    background-color: #3c3c3b;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 0; /* Remove unnecessary margin to keep it at the bottom */
 }
 
 /* Responsive Design */
@@ -111,19 +152,12 @@ main {
     .nav-right {
         display: none; /* Hide the quote on small screens for better usability */
     }
-}
-
-footer {
-    background-color: #3a3a3a;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 0; /* Remove unnecessary margin to keep it at the bottom */
-}
-
-body {
-    background-color: #FFFFFF; /* White */
-}
-main {
-    color: #3a3a3a;
+    .about-container {
+        flex-direction: column; /* Stack text and photo vertically */
+        gap: 15px; /* Reduce spacing for smaller screens */
+    }
+    .about-photo {
+        align-self: center; /* Center the photo on small screens */
+        margin-right: 0; /* Remove extra right margin on smaller screens */
+    }
 }

@@ -4,8 +4,6 @@ title: Principles
 permalink: principles.html
 ---
 
-# Frameworks by which I work and live
+# Place-based learning and restorative practices
 
-Place-based learning and restorative practices.
-
-More soon.
+My extensive international experiences and my Polish-Belarusian heritage inform my commitment to education across borders.
