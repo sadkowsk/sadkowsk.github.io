@@ -104,7 +104,7 @@ nav a.active i {
 
 main {
     flex: 1; /* Allow the main content to expand and fill available space */
-    padding: 30px 50px; /* Default padding */
+    padding: 30px 140px; /* Default padding */
     color: #090c02; /* Dark gray text color */
 }
 
@@ -126,13 +126,13 @@ main {
 .about-photo {
     flex: 1; /* Make the photo area smaller */
     max-width: 300px; /* Control maximum image size */
-    margin-top: 40px; /* Increase distance from the header */
+    margin-top: 93px; /* Increase distance from the header */
 }
 
 .about-photo img {
     max-width: 100%; /* Ensure the image is responsive */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 30px; /* Optional: Add rounded corners to the photo */
+    border-radius: 0px; /* Optional: Add rounded corners to the photo */
     margin-right: 50px; /* Match the text's left padding */
 }
 
@@ -179,9 +179,9 @@ main {
 
 /* Project icon (image) */
 .project-icon {
-    flex: 0 0 120px; /* Fixed size for icons */
-    width: 120px;
-    height: 120px;
+    flex: 0 0 100px; /* Fixed size for icons */
+    width: 100px;
+    height: 100px;
     overflow: hidden; /* Prevent large images from spilling out */
 }
 
