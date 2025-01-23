@@ -126,7 +126,7 @@ main {
 .about-photo {
     flex: 1; /* Make the photo area smaller */
     max-width: 300px; /* Control maximum image size */
-    margin-top: 93px; /* Increase distance from the header */
+    margin-top: 30px; /* Increase distance from the header */
 }
 
 .about-photo img {
