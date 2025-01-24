@@ -7,7 +7,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",           // Tells Eleventy to use the `src/` folder
-      includes: "_includes",  // Folder for templates
+      includes: "_includes",  // Folder for templates and partials
       output: "_site",        // Where static files are generated
     },
   };

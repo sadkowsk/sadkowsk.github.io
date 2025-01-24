@@ -13,11 +13,18 @@
     <h1><a href="/">Karol Sadkowski, M.Ed.</a></h1> <!-- Static title with link to the Home page -->
     <nav>
       <div class="nav-left">
+        {# ACTIVE LINKS - PUBLIC PAGES #}
         <a href="/" class="{% if page.url == '/' %}active{% endif %}">About</a>
         <a href="/principles.html" class="{% if page.url == '/principles.html' %}active{% endif %}">Principles</a>
         <a href="/projects.html" class="{% if page.url == '/projects.html' %}active{% endif %}">Projects</a>
         <a href="/photos.html" class="{% if page.url == '/photos.html' %}active{% endif %}">Photos</a>
-        <a href="/map.html" class="{% if page.url == '/map.html' %}active{% endif %}">Map</a>
+        
+        {# TEMPORARY: UNDER CONSTRUCTION #}
+        <a href="/map-construction.html" class="{% if page.url == '/map-construction.html' %}active{% endif %}">Map</a>
+        
+        {# COMMENTED OUT: INACTIVE PAGES #}
+        {# <a href="/map.html" class="{% if page.url == '/map.html' %}active{% endif %}">Map</a> #}
+        
         <a href="https://www.linkedin.com/in/karolsadkowski/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
