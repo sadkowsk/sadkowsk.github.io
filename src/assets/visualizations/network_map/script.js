@@ -8,23 +8,34 @@ const svg = d3.select("#network")
 
 d3.json("data.json").then(data => {
   const simulation = d3.forceSimulation(data.nodes)
-    .force("link", d3.forceLink(data.links).id(d => d.id).distance(100))
-    .force("charge", d3.forceManyBody().strength(-200))
+    .force("link", d3.forceLink(data.links).id(d => d.id).distance(150))
+    .force("charge", d3.forceManyBody().strength(-300))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
   const link = svg.append("g")
     .selectAll("line")
     .data(data.links)
     .join("line")
-    .attr("stroke-width", d => Math.sqrt(d.value));
+    .attr("stroke-width", d => d.value)
+    .attr("stroke", "#ccc");
 
   const node = svg.append("g")
     .selectAll("circle")
     .data(data.nodes)
     .join("circle")
-    .attr("r", 10)
-    .attr("fill", d => d.group === 1 ? "blue" : "orange")
-    .call(drag(simulation));
+    .attr("r", d => d.group === 0 ? 15 : 10) // Center node larger
+    .attr("fill", d => d.group === 1 ? "#0073e6" : d.group === 2 ? "#ff9900" : "#444")
+    .call(drag(simulation))
+    .on("mouseover", (event, d) => {
+      d3.select("#tooltip")
+        .style("opacity", 1)
+        .html(`Node: ${d.id}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 20) + "px");
+    })
+    .on("mouseout", () => {
+      d3.select("#tooltip").style("opacity", 0);
+    });
 
   const text = svg.append("g")
     .selectAll("text")
@@ -68,3 +79,13 @@ d3.json("data.json").then(data => {
       });
   }
 });
+
+// Tooltip setup
+d3.select("body").append("div")
+  .attr("id", "tooltip")
+  .style("position", "absolute")
+  .style("opacity", 0)
+  .style("background", "#fff")
+  .style("border", "1px solid #ccc")
+  .style("padding", "5px")
+  .style("border-radius", "5px");

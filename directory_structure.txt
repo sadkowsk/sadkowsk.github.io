@@ -4,15 +4,6 @@
 ├── README.md
 ├── _site
 │   ├── _draft
-│   │   ├── map-construction
-│   │   │   └── index.html
-│   │   ├── map-construction.html
-│   │   ├── map.html
-│   │   ├── photos-construction.html
-│   │   ├── principles-construction
-│   │   ├── principles-construction.html
-│   │   ├── projects-construction
-│   │   └── projects-construction.html
 │   ├── about
 │   │   └── index.html
 │   ├── about.html
@@ -3027,7 +3018,7 @@
     ├── _data
     │   └── site.json
     ├── _includes
-    │   ├── construction.njk
+    │   ├── construction.html
     │   └── layout.njk
     ├── assets
     │   ├── features
@@ -3097,4 +3088,4 @@
     └── r-scripts
         └── chord_diagram.R
 
-505 directories, 2593 files
+502 directories, 2587 files
