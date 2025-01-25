@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  #network {
+    margin: auto;
+    width: 80%;
+    height: 600px;
+  }
+  
+  circle {
+    cursor: pointer;
+    stroke: black;
+    stroke-width: 1px;
+  }
+  
+  text {
+    font-size: 12px;
+    pointer-events: none;
+  }
+  
