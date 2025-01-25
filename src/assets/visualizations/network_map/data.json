@@ -1,0 +1,15 @@
+{
+    "nodes": [
+      { "id": "Teaching", "group": 1 },
+      { "id": "Research", "group": 1 },
+      { "id": "Project Management", "group": 1 },
+      { "id": "High Schools in China", "group": 2 },
+      { "id": "Field Research in Tanzania", "group": 2 }
+    ],
+    "links": [
+      { "source": "Teaching", "target": "High Schools in China", "value": 2 },
+      { "source": "Research", "target": "Field Research in Tanzania", "value": 3 },
+      { "source": "Project Management", "target": "Research", "value": 1 }
+    ]
+  }
+  

@@ -39,10 +39,10 @@ chord <- chorddiag(
 # Dynamically determine the project root (assumes this script is in 'r-scripts/')
 output_path <- file.path(
   dirname(rstudioapi::getActiveDocumentContext()$path), # Path of the R script
-  "..",                                                 # Move up to the project root
-  "assets",                                             # Navigate to the assets directory
-  "visualizations",                                     # Navigate to visualizations
-  "chord_diagram.html"                                  # Output file name
+  "..",                                                # Move up to the project root
+  "archived_visualizations",                           # Navigate to the preservation folder
+  "chord_diagram",                                     # Subfolder for the chord diagram
+  "chord_diagram.html"                                 # Output file name
 )
 
 # Save the widget as an HTML file
