@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sadkowsk/sadkowsk.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "gh-pages": "^6.3.0"
   }
 }
