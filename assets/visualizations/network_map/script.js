@@ -4,22 +4,31 @@ const height = 600;
 const svg = d3.select("#network")
   .append("svg")
   .attr("width", width)
-  .attr("height", height);
+  .attr("height", height)
+  .call(d3.zoom() // Enable zoom behavior
+    .scaleExtent([0.5, 5]) // Limit zoom scale
+    .on("zoom", event => {
+      g.attr("transform", event.transform); // Apply zoom transformations
+    }));
+
+const g = svg.append("g"); // Group to apply zoom transformations
 
 d3.json("data.json").then(data => {
   const simulation = d3.forceSimulation(data.nodes)
-    .force("link", d3.forceLink(data.links).id(d => d.id).distance(150))
-    .force("charge", d3.forceManyBody().strength(-300))
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("link", d3.forceLink(data.links).id(d => d.id).distance(200)) // Longer link distance for spread
+    .force("charge", d3.forceManyBody().strength(-500)) // Repulsion to push nodes apart
+    .force("center", d3.forceCenter(width / 2, height / 2)) // Center the visualization
+    .force("collide", d3.forceCollide().radius(40)) // Prevent node overlap
+    .on("tick", ticked);
 
-  const link = svg.append("g")
+  const link = g.append("g")
     .selectAll("line")
     .data(data.links)
     .join("line")
     .attr("stroke-width", d => d.value)
     .attr("stroke", "#ccc");
 
-  const node = svg.append("g")
+  const node = g.append("g")
     .selectAll("circle")
     .data(data.nodes)
     .join("circle")
@@ -37,7 +46,7 @@ d3.json("data.json").then(data => {
       d3.select("#tooltip").style("opacity", 0);
     });
 
-  const text = svg.append("g")
+  const text = g.append("g")
     .selectAll("text")
     .data(data.nodes)
     .join("text")
@@ -45,7 +54,9 @@ d3.json("data.json").then(data => {
     .attr("x", 15)
     .attr("y", 5);
 
-  simulation.on("tick", () => {
+  simulation.on("tick", ticked);
+
+  function ticked() {
     link
       .attr("x1", d => d.source.x)
       .attr("y1", d => d.source.y)
@@ -59,7 +70,7 @@ d3.json("data.json").then(data => {
     text
       .attr("x", d => d.x + 10)
       .attr("y", d => d.y);
-  });
+  }
 
   function drag(simulation) {
     return d3.drag()

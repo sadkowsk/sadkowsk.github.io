@@ -7,7 +7,7 @@
     { "id": "High Schools in China", "group": 2 },
     { "id": "Community College & Meatpacking Plant in Iowa", "group": 2 },
     { "id": "Ombuds Office at Grinnell College", "group": 2 },
-    { "id": "Neurodevelopment Lab at Vanderbilt", "group": 2 },
+    { "id": "Learning and Neurodevelopment Lab at Vanderbilt", "group": 2 },
     { "id": "Field Research in Tanzania", "group": 2 },
     { "id": "Field Research in India", "group": 2 },
     { "id": "Field Research in Poland", "group": 2 },
@@ -20,9 +20,10 @@
     { "source": "Teaching", "target": "High Schools in China", "value": 2 },
     { "source": "Teaching", "target": "Community College & Meatpacking Plant in Iowa", "value": 2 },
     { "source": "Research", "target": "Field Research in Tanzania", "value": 3 },
-    { "source": "Research", "target": "Neurodevelopment Lab at Vanderbilt", "value": 3 },
+    { "source": "Research", "target": "Learning and Neurodevelopment Lab at Vanderbilt", "value": 3 },
     { "source": "Research", "target": "Field Research in India", "value": 2 },
     { "source": "Project Management", "target": "Ombuds Office at Grinnell College", "value": 3 },
-    { "source": "Project Management", "target": "Community Radio Station in Senegal", "value": 2 }
+    { "source": "Project Management", "target": "Community Radio Station in Senegal", "value": 2 },
+    { "source": "Project Management", "target": "Learning and Neurodevelopment Lab at Vanderbilt", "value": 3 }
   ]
 }

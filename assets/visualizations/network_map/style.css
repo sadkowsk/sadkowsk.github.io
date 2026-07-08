@@ -11,8 +11,6 @@ body {
 
 circle {
   cursor: pointer;
-  stroke: black;
-  stroke-width: 1px;
 }
 
 text {
