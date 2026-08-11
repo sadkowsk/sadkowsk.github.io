@@ -3,96 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Projects | Karol Sadkowski</title>
+
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  >
 </head>
-<body>
-  
-    <header>
-      <h1><a href="/">Karol Sadkowski, M.Ed.</a></h1> <!-- Static title with link to the Home page -->
-      <nav>
-        <div class="nav-left">
-          <!-- Public Pages -->
-          <a href="/" class="">About</a>
-          <a href="/principles.html" class="">Principles</a>
-          <a href="/projects.html" class="active">Projects</a>
-          <a href="/photos.html" class="">Photos</a>
-          <!-- External Links -->
-          <a href="https://www.linkedin.com/in/karolsadkowski/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/sadkowsk" target="_blank" aria-label="GitHub" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <div class="nav-right">
-          <a href="https://www.savethechildren.org/" target="_blank" class="support-link" aria-label="Support Save the Children">
-            Support Save the Children <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <h1>Education management, research, and evaluation</h1>
-<div class="projects-container">
-  <!-- Project 1 -->
-  <div class="project-entry">
-    <div class="project-info">
-      <a href="#" class="project-title">The <em>Sesame Street</em> Archive</a>
-      <p class="project-caption">More soon.</p>
-    </div>
-    <div class="project-icon">
-      <img src="/assets/images/logo_ssa.jpg" alt="Sesame Street Archive Logo">
-    </div>
-  </div>
-  <!-- Project 2 -->
-  <div class="project-entry">
-    <div class="project-info">
-      <a href="#" class="project-title">The Freequalizer</a>
-      <p class="project-caption">More soon.</p>
-    </div>
-    <div class="project-icon">
-      <img src="/assets/images/logo_freequalizer.jpg" alt="Future of Free Speech Project Logo">
-    </div>
-  </div>
-  <!-- Project 3 -->
-  <div class="project-entry">
-    <div class="project-info">
-      <a href="#" class="project-title">Pre-Analysis Plan: "Time to Switch: Effectiveness of a Return-to-Remote Drill Assessment for School Disaster Preparedness"</a>
-      <p class="project-caption">More soon.</p>
-    </div>
-    <div class="project-icon">
-      <img src="/assets/images/thumbnail_pap.jpg" alt="Project Thumbnail">
-    </div>
-  </div>
-  <!-- Project 4 -->
-  <div class="project-entry">
-    <div class="project-info">
-      <a href="#" class="project-title">Impact Plan: "Improving Child Literacy: Formative Assessment Methods Training for Primary School Teachers in Baluchistan Province, Pakistan"</a>
-      <p class="project-caption">More soon.</p>
-    </div>
-    <div class="project-icon">
-      <img src="/assets/images/thumbnail_baluchistan.png" alt="Project Thumbnail">
-    </div>
-  </div>
-  <!-- Project 5 -->
-  <div class="project-entry">
-    <div class="project-info">
-      <a href="#" class="project-title">Program Evaluation Plan: "The Sexual Assault Center SAFE Clinic in Nashville, Tennessee"</a>
-      <p class="project-caption">More soon.</p>
-    </div>
-    <div class="project-icon">
-      <img src="/assets/images/logo_sac.jpg" alt="Sexual Assault Center Logo">
-    </div>
-  </div>
-</div>
 
-    </main>
-    <footer>
-      <p>&copy; 2025 Karol Sadkowski. All rights reserved.</p>
-    </footer>
-  
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-brand">
+        <a
+          href="/"
+          class="logo-link"
+          aria-label="Karol Sadkowski homepage"
+        >
+          <img
+            src="/assets/images/header-logo.png"
+            alt=""
+            class="header-logo"
+            aria-hidden="true"
+          >
+        </a>
+
+        <h1>
+          <a href="/">Karol Ł. Sadkowski, M.Ed.</a>
+        </h1>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a
+          href="/"
+          class=""
+        >
+          About
+        </a>
+
+        <a
+          href="/bio.html"
+          class=""
+        >
+          Bio
+        </a>
+
+        <a
+          href="/projects.html"
+          class="active"
+        >
+          Projects
+        </a>
+
+        <a
+          href="/values.html"
+          class=""
+        >
+          Values
+        </a>
+
+        <a
+          href="/photos.html"
+          class=""
+        >
+          Photos
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/karolsadkowski/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="https://github.com/sadkowsk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- START of construction redirect wrapper. -->
+  <style>
+  .construction-notice {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #fdfdfd;
+    color: #444;
+  }
+
+  .construction-notice h1 {
+    font-size: 1.5em;
+    margin: 0 0 20px;
+  }
+
+  .construction-notice p {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  .construction-notice .illustration {
+    display: block;
+    width: 100%;
+    max-width: 225px;
+    height: auto;
+    margin: 30px auto 0;
+  }
+
+  .construction-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    min-width: 150px;
+    color: #0073e6;
+    text-decoration: none;
+    border: 1px solid #0073e6;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .construction-link:hover {
+    background-color: #0073e6;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .construction-notice h1 {
+      font-size: 1.45em;
+    }
+
+    .construction-notice .illustration {
+      max-width: 250px;
+    }
+  }
+</style>
+<section class="construction-notice" aria-labelledby="construction-heading">
+  <img
+    src="/assets/images/construction-eye.png"
+    alt="A claymation computer monitor with a large eyeball and magnifying glass"
+    class="illustration"
+  >
+  <h1 id="construction-heading">
+    Hmm—this page seems to be going through something...
+  </h1>
+  <p><em>Check back later to see how it's feeling.</em></p>
+  <a href="/" class="construction-link" id="return-link">
+    Return to About
+    (<span id="return-seconds">10</span>)
+  </a>
+</section>
+<script>
+  (() => {
+    const secondsDisplay = document.getElementById("return-seconds");
+    let seconds = 10;
+
+    if (!secondsDisplay) {
+      return;
+    }
+
+    const tick = () => {
+      seconds -= 1;
+
+      if (seconds <= 0) {
+        window.location.href = "/";
+        return;
+      }
+
+      secondsDisplay.textContent = seconds;
+      window.setTimeout(tick, 1000);
+    };
+
+    window.setTimeout(tick, 1000);
+  })();
+</script>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="copyright">
+        Copyright &copy; 2026 Karol Ł. Sadkowski. All rights reserved.
+        <button
+          class="copyright-info-button"
+          type="button"
+          aria-label="Copyright and usage information"
+          aria-haspopup="dialog"
+          aria-controls="copyright-modal"
+        >
+          <span aria-hidden="true">i</span>
+        </button>
+      </p>
+
+      <span class="footer-separator" aria-hidden="true">|</span>
+
+      <div class="footer-update-group">
+        <p class="last-updated">
+          Updated: 11 August 2026.
+        </p>
+
+        <a
+          href="https://github.com/sadkowsk/sadkowsk.github.io"
+          class="footer-repo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View this site's repository on GitHub"
+          title="View site repository on GitHub"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    class="copyright-modal-overlay"
+    id="copyright-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="copyright-modal-title"
+    aria-hidden="true"
+  >
+    <div class="copyright-modal" role="document">
+      <button
+        class="copyright-modal-close"
+        type="button"
+        aria-label="Close copyright and usage information"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <h2 id="copyright-modal-title">
+        Copyright and Usage Notice
+      </h2>
+
+      <div class="copyright-modal-content">
+        <p>Copyright © 2026 Karol Sadkowski. All rights reserved, except for source code made available under the license provided in this website’s GitHub repository.</p>
+<p><strong>Website:</strong> <code>https://sadkowsk.github.io/</code></p>
+<p><strong>Source repository:</strong> <code>https://github.com/sadkowsk/sadkowsk.github.io</code></p>
+<p><strong>1. Source code.</strong> This website constitutes Karol Sadkowski’s narrative portfolio. Its source code is publicly available through the GitHub repository identified above and is used to publish this site via GitHub Pages. Original source code may be copied and modified for reuse in accordance with that license.</p>
+<p><strong>2. Protected non-code materials.</strong> All written content, graphics, photographs, images, and other non-code materials published on this website or included in its GitHub repository remain the intellectual property of Karol Sadkowski and may not be copied, republished, distributed, or used to create derivative works. Anyone cloning, branching, or forking the repository for the purpose of reusing its source code must remove these protected non-code materials before republishing, distributing, or deploying the resulting work.</p>
+<p><strong>3. Identity and impersonation.</strong> The name, likeness, biographical information, professional history, and other identifying materials presented on this website may not be used to impersonate Karol Sadkowski, falsely represent an affiliation with or endorsement by Karol Sadkowski, create fraudulent profiles or accounts, or otherwise misrepresent another person or entity as Karol Sadkowski. Nothing published on this website authorizes any person or automated system to assume, reproduce, or falsely represent Karol Sadkowski’s identity.</p>
+<p><strong>4. Personal views.</strong> Unless expressly stated otherwise, the views, opinions, interpretations, and other commentary presented on this website are those of Karol Sadkowski alone and do not represent the views or positions of any current or former employer, client, partner, collaborator, affiliated organization, or other third party.</p>
+<p><strong>5. Artificial intelligence and automated use.</strong> Use of this site’s protected non-code content to train or otherwise develop artificial intelligence or machine-learning systems is prohibited. Automated search and discovery services may index this website and its GitHub repository for the limited purpose of directing users to the original source.</p>
+<p><strong>6. Automated agents.</strong> Automated agents are expected to honor this site’s <code>robots.txt</code> file and other machine-readable directives. The presence or absence of a crawler directive does not independently grant permission to copy, reuse, republish, or otherwise exploit protected content.</p>
+<p><strong>7. Public availability.</strong> Public availability of this website and its source-code repository does not place their protected non-code materials in the public domain or otherwise grant permission to reuse them beyond the rights expressly granted for original source code under that license.</p>
+<p><strong>8. Citation and attribution.</strong> Where limited use of protected non-code content is otherwise permitted by law or by prior written permission, Karol Sadkowski should be identified as the original author or creator, and the canonical website identified above should be cited as the original source where reasonably practicable. Attribution or citation does not, by itself, grant permission to copy, reproduce, republish, distribute, modify, or create derivative works from protected content.</p>
+<p><strong>9. Third-party materials.</strong> Third-party libraries, fonts, software, images, and other materials included in or referenced by this website remain subject to their respective copyright notices and licenses.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/features/copyright-modal.js"></script>
 </body>
 </html>
