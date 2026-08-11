@@ -1,0 +1,23 @@
+# Permit general search and discovery.
+User-agent: *
+Allow: /
+
+# OpenAI model-training crawler.
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic model-development crawler.
+User-agent: ClaudeBot
+Disallow: /
+
+# Google generative-AI training and grounding control.
+User-agent: Google-Extended
+Disallow: /
+
+# Apple generative foundation-model training control.
+User-agent: Applebot-Extended
+Disallow: /
+
+# Common Crawl dataset crawler.
+User-agent: CCBot
+Disallow: /

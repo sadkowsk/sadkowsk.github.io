@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy",
+    "build": "ELEVENTY_ENV=production npx @11ty/eleventy",
     "deploy": "npm run build && npx gh-pages -d _site"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/sadkowsk/sadkowsk.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "markdown-it": "^15.0.0"
   }
 }

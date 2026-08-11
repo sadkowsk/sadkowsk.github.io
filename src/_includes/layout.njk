@@ -3,87 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>{{ title }} | Karol Sadkowski</title>
+
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  >
 </head>
+
 <body>
-  {% if page.url == "/principles.html" or page.url == "" %}      {# Add the URLs of any pages you want to display the construction notice here, separated by "or". Example: "/principles.html" #}
-    <!-- Construction Notice -->
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        text-align: center;
-        padding: 50px;
-        background-color: #fdfdfd;
-        color: #444;
-      }
-      h1 {
-        font-size: 2em;
-        margin-bottom: 20px;
-      }
-      p {
-        font-size: 1.2em;
-        color: #666;
-      }
-      .illustration {
-        max-width: 200px;
-        margin: 30px auto;
-      }
-      a {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 15px;
-        font-size: 1em;
-        color: #0073e6;
-        text-decoration: none;
-        border: 1px solid #0073e6;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      a:hover {
-        background-color: #0073e6;
-        color: white;
-      }
-    </style>
-    <div>
-      <img src="/assets/zoinks.jpg" alt="Caricature dog eating a snack illustration" class="illustration">
-      <h1>Zoinks! This page is under construction.</h1>
-      <p>Check back later to see if the mystery has been solved.</p>
-      <a href="/">Take Me Back</a>
-    </div>
-  {% else %}
-    <header>
-      <h1><a href="/">Karol Sadkowski, M.Ed.</a></h1> <!-- Static title with link to the Home page -->
-      <nav>
-        <div class="nav-left">
-          <!-- Public Pages -->
-          <a href="/" class="{% if page.url == '/' %}active{% endif %}">About</a>
-          <a href="/principles.html" class="{% if page.url == '/principles.html' %}active{% endif %}">Principles</a>
-          <a href="/projects.html" class="{% if page.url == '/projects.html' %}active{% endif %}">Projects</a>
-          <a href="/photos.html" class="{% if page.url == '/photos.html' %}active{% endif %}">Photos</a>
-          <!-- External Links -->
-          <a href="https://www.linkedin.com/in/karolsadkowski/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/sadkowsk" target="_blank" aria-label="GitHub" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <div class="nav-right">
-          <a href="https://www.savethechildren.org/" target="_blank" class="support-link" aria-label="Support Save the Children">
-            Support Save the Children <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-brand">
+        <a
+          href="/"
+          class="logo-link"
+          aria-label="Karol Sadkowski homepage"
+        >
+          <img
+            src="/assets/images/header-logo.png"
+            alt=""
+            class="header-logo"
+            aria-hidden="true"
+          >
+        </a>
+
+        <h1>
+          <a href="/">Karol Ł. Sadkowski, M.Ed.</a>
+        </h1>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a
+          href="/"
+          class="{% if page.url == '/' %}active{% endif %}"
+        >
+          About
+        </a>
+
+        <a
+          href="/bio.html"
+          class="{% if page.url == '/bio.html' %}active{% endif %}"
+        >
+          Bio
+        </a>
+
+        <a
+          href="/projects.html"
+          class="{% if page.url == '/projects.html' %}active{% endif %}"
+        >
+          Projects
+        </a>
+
+        <a
+          href="/values.html"
+          class="{% if page.url == '/values.html' %}active{% endif %}"
+        >
+          Values
+        </a>
+
+        <a
+          href="/photos.html"
+          class="{% if page.url == '/photos.html' %}active{% endif %}"
+        >
+          Photos
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/karolsadkowski/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="https://github.com/sadkowsk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          title="GitHub"
+        >
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
       </nav>
-    </header>
-    <main>
-      {{ content | safe }}
-    </main>
-    <footer>
-      <p>&copy; 2025 Karol Sadkowski. All rights reserved.</p>
-    </footer>
-  {% endif %}
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="copyright">
+        Copyright &copy; 2026 Karol Ł. Sadkowski. All rights reserved.
+        <button
+          class="copyright-info-button"
+          type="button"
+          aria-label="Copyright and usage information"
+          aria-haspopup="dialog"
+          aria-controls="copyright-modal"
+        >
+          <span aria-hidden="true">i</span>
+        </button>
+      </p>
+
+      <span class="footer-separator" aria-hidden="true">|</span>
+
+      <div class="footer-update-group">
+        <p class="last-updated">
+          Updated: {{ lastUpdated }}.
+        </p>
+
+        <a
+          href="https://github.com/sadkowsk/sadkowsk.github.io"
+          class="footer-repo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View this site's repository on GitHub"
+          title="View site repository on GitHub"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    class="copyright-modal-overlay"
+    id="copyright-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="copyright-modal-title"
+    aria-hidden="true"
+  >
+    <div class="copyright-modal" role="document">
+      <button
+        class="copyright-modal-close"
+        type="button"
+        aria-label="Close copyright and usage information"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <h2 id="copyright-modal-title">
+        Copyright and Usage Notice
+      </h2>
+
+      <div class="copyright-modal-content">
+        {{ copyrightNoticeHtml | safe }}
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/features/copyright-modal.js"></script>
 </body>
 </html>
