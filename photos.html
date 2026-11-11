@@ -96,98 +96,425 @@
   </header>
 
   <main>
-    <!-- START of construction redirect wrapper. -->
-  <style>
-  .construction-notice {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
-    background-color: #fdfdfd;
-    color: #444;
+    <style>
+  .photo-album { margin-block: 2rem; }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(100%, 135px));
+    gap: 1rem;
   }
-
-  .construction-notice h1 {
-    font-size: 1.5em;
-    margin: 0 0 20px;
+  .photo-grid > a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    align-self: start;
+    overflow: hidden;
   }
-
-  .construction-notice p {
-    font-size: 1.2em;
-    color: #666;
-  }
-
-  .construction-notice .illustration {
+  .photo-grid > a > img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
-    max-width: 225px;
-    height: auto;
-    margin: 30px auto 0;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
   }
-
-  .construction-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    min-width: 150px;
-    color: #0073e6;
-    text-decoration: none;
-    border: 1px solid #0073e6;
-    border-radius: 5px;
-    text-align: center;
+  .photo-grid > a:focus,
+  .photo-grid > a:focus-visible {
+    outline: none;
   }
-
-  .construction-link:hover {
-    background-color: #0073e6;
-    color: white;
+  .photo-grid a img {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
   }
-
-  @media (max-width: 600px) {
-    .construction-notice h1 {
-      font-size: 1.45em;
-    }
-
-    .construction-notice .illustration {
-      max-width: 250px;
+  .photo-grid a img.is-loaded {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-grid a img {
+      transition: none;
     }
   }
 </style>
-<section class="construction-notice" aria-labelledby="construction-heading">
-  <img
-    src="/assets/images/construction-eye.png"
-    alt="A claymation computer monitor with a large eyeball and magnifying glass"
-    class="illustration"
-  >
-  <h1 id="construction-heading">
-    Hmm—this page seems to be going through something...
-  </h1>
-  <p><em>Check back later to see how it's feeling.</em></p>
-  <a href="/" class="construction-link" id="return-link">
-    Return to About
-    (<span id="return-seconds">10</span>)
-  </a>
-</section>
+<div id="photo-albums"></div>
 <script>
-  (() => {
-    const secondsDisplay = document.getElementById("return-seconds");
-    let seconds = 10;
+  const albums = [
+    // { title: "Place · Year", folder: "subfolder", manifest: "album-index.json"},
+    { title: "Shandong Province, China · 2017", folder: "2017_daqingshan", manifest: "album-index.json", filesKey: "" },
+    { title: "Himachal Pradesh Province, India · 2013", folder: "2013_dharamsala", manifest: "album-index.json", filesKey: "" },
+  ];
 
-    if (!secondsDisplay) {
-      return;
+  async function renderAlbum(album, section) {
+    const base = '/assets/photos/' + encodeURIComponent(album.folder) + '/';
+    const response = await fetch(base + encodeURIComponent(album.manifest));
+    if (!response.ok) throw new Error('Manifest request returned ' + response.status);
+
+    const manifest = await response.json();
+    const files = album.filesKey ? manifest[album.filesKey] : manifest;
+    if (!Array.isArray(files) || files.some(file => typeof file !== 'string' || !file)) {
+      throw new Error('Expected a JSON array of filenames, or an object with that array at filesKey.');
     }
 
-    const tick = () => {
-      seconds -= 1;
+    const grid = document.createElement('div');
+    grid.className = 'photo-grid';
+    for (const [index, file] of files.entries()) {
+      const url = base + encodeURIComponent(file);
+      const link = document.createElement('a');
+      link.href = url;
+      const image = document.createElement('img');
+      image.addEventListener('load', async () => {
+        try {
+          await image.decode();
+        } catch {
+        }
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => image.classList.add('is-loaded'));
+        });
+      }, { once: true });
+      image.addEventListener('error', () => {
+        image.classList.add('is-loaded');
+      }, { once: true });
+      image.src = url;
+      image.alt = album.title + ' — photo ' + (index + 1);
+      image.loading = 'lazy';
+      link.append(image);
+      grid.append(link);
+    }
+    section.append(grid);
+  }
 
-      if (seconds <= 0) {
-        window.location.href = "/";
-        return;
-      }
+  const gallery = document.querySelector('#photo-albums');
+  for (const album of albums) {
+    const section = document.createElement('section');
+    section.className = 'photo-album';
+    const heading = document.createElement('h2');
+    heading.textContent = album.title;
+    section.append(heading);
+    gallery.append(section);
 
-      secondsDisplay.textContent = seconds;
-      window.setTimeout(tick, 1000);
+    renderAlbum(album, section).catch(error => {
+      const message = document.createElement('p');
+      message.textContent = 'Could not load this album.';
+      section.append(message);
+      console.error(album.title, error);
+    });
+  }
+</script>
+<style>
+  #photo-lightbox, #photo-lightbox * { box-sizing: border-box; }
+  #photo-lightbox {
+    width: min(1200px, calc(100vw - 48px));
+    max-width: none;
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    background: #171819;
+    color: #272727;
+    box-shadow: 0 24px 100px rgb(0 0 0 / .45);
+    overflow: auto;
+    font-family: inherit;
+    opacity: 0;
+    transition: opacity .18s ease;
+  }
+  #photo-lightbox::backdrop {
+    background: rgb(12 14 16 / .82);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity .18s ease;
+  }
+  #photo-lightbox.is-visible,
+  #photo-lightbox.is-visible::backdrop { opacity: 1; }
+  #photo-lightbox .lightbox-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    min-height: 0;
+    gap: 0;
+    padding: 0;
+    border: 0;
+  }
+  #photo-lightbox .lightbox-view {
+    position: relative;
+    min-width: 0;
+    background: #171819;
+  }
+  #photo-lightbox .lightbox-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    object-fit: cover;
+    outline: none;
+    box-shadow: none;
+  }
+  #photo-lightbox button {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #3c3c3b;
+    font-family: Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  #photo-lightbox button:hover { background-color: #e8e5df; }
+  #photo-lightbox button:focus-visible {
+    outline: none;
+  }
+  #photo-lightbox .lightbox-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    pointer-events: none;
+  }
+
+  #photo-lightbox .lightbox-controls {
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  #photo-lightbox .lightbox-view:hover .lightbox-controls,
+  #photo-lightbox .lightbox-view:focus-within .lightbox-controls {
+    opacity: 1;
+  }
+  #photo-lightbox .lightbox-controls button { pointer-events: auto; }
+  @media (hover: none) {
+    #photo-lightbox .lightbox-controls { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #photo-lightbox, #photo-lightbox::backdrop,
+    #photo-lightbox .lightbox-controls { transition: none; }
+  }
+
+  #photo-lightbox .lightbox-controls[hidden],
+  #photo-lightbox [hidden] { display: none; }
+  #photo-lightbox .lightbox-context {
+    position: relative;
+    padding: 84px 28px 32px;
+    background: #f7f6f2;
+    text-align: left;
+  }
+  #photo-lightbox .lightbox-context form {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  #photo-lightbox h2 {
+    margin: 0;
+    padding: 0;
+    color: #252622;
+    font-family: inherit;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -.025em;
+    text-transform: none;
+    overflow-wrap: anywhere;
+  }
+  #photo-lightbox .lightbox-count {
+    margin: 12px 0 0;
+    color: #74746d;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: .02em;
+  }
+  #photo-lightbox .lightbox-caption {
+    margin: 28px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid #ddddd5;
+    color: #52534c;
+    font-size: 15px;
+    line-height: 1.75;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 700px) {
+    #photo-lightbox {
+      width: calc(100vw - 24px);
+      max-height: calc(100dvh - 24px);
+    }
+    #photo-lightbox .lightbox-layout {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    #photo-lightbox .lightbox-view { height: 58dvh; }
+    #photo-lightbox .lightbox-image { padding: 0; }
+    #photo-lightbox .lightbox-context { padding: 24px 72px 24px 24px; }
+    #photo-lightbox .lightbox-controls { padding: 10px; }
+    #photo-lightbox h2 { font-size: 20px; }
+  }
+</style>
+<dialog id="photo-lightbox" aria-labelledby="lightbox-album">
+  <div class="lightbox-layout">
+    <div class="lightbox-view">
+      <img class="lightbox-image" alt="">
+      <div class="lightbox-controls">
+        <button type="button" data-step="-1" aria-label="Previous photo"><span aria-hidden="true">‹</span></button>
+        <button type="button" data-step="1" aria-label="Next photo"><span aria-hidden="true">›</span></button>
+      </div>
+    </div>
+    <aside class="lightbox-context">
+      <form method="dialog">
+        <button type="submit" aria-label="Close photo viewer" autofocus><span aria-hidden="true">&times;</span></button>
+      </form>
+      <h2 id="lightbox-album"></h2>
+      <p class="lightbox-count" aria-live="polite"></p>
+      <p class="lightbox-caption" hidden></p>
+    </aside>
+  </div>
+</dialog>
+<script>
+  (() => {
+    // Optional captions keyed by "album-folder/filename".
+    const captions = {
+      // "lisbon-2024/image1.jpg": "Add the location, date, or story here.",
     };
 
-    window.setTimeout(tick, 1000);
+    const gallery = document.querySelector('#photo-albums');
+    const dialog = document.querySelector('#photo-lightbox');
+    let image = dialog.querySelector('.lightbox-image');
+    const albumHeading = dialog.querySelector('#lightbox-album');
+    const count = dialog.querySelector('.lightbox-count');
+    const caption = dialog.querySelector('.lightbox-caption');
+    const controls = dialog.querySelector('.lightbox-controls');
+    let thumbnails = [];
+    let currentIndex = 0;
+    let opener;
+    let requestId = 0;
+    let photoRatio = 1;
+    let closing = false;
+
+    function closeViewer() {
+      if (closing || !dialog.open) return;
+      closing = true;
+      ++requestId;
+      dialog.classList.remove('is-visible');
+      const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180;
+      setTimeout(() => {
+        dialog.close();
+        closing = false;
+      }, duration);
+    }
+    dialog.querySelector('form').addEventListener('submit', event => {
+      event.preventDefault();
+      closeViewer();
+    });
+    dialog.addEventListener('cancel', event => {
+      event.preventDefault();
+      closeViewer();
+    });
+
+    function fitPhoto() {
+      const mobile = window.innerWidth <= 700;
+      const availableWidth = window.innerWidth - (mobile ? 24 : 48);
+      const panelWidth = mobile ? 0 : 280;
+      const heightLimit = mobile ? window.innerHeight * .58 : Math.min(720, window.innerHeight - 50);
+      const width = Math.min(
+        1200 - panelWidth,
+        availableWidth - panelWidth,
+        heightLimit * photoRatio
+      ) * 0.9;
+      dialog.style.width = (width + panelWidth) + 'px';
+      dialog.querySelector('.lightbox-view').style.height = (width / photoRatio) + 'px';
+    }
+    window.addEventListener('resize', fitPhoto);
+
+    async function showPhoto(index) {
+      if (closing) return;
+      currentIndex = (index + thumbnails.length) % thumbnails.length;
+      const link = thumbnails[currentIndex];
+      const photoKey = new URL(link.href).pathname
+        .split('/').slice(-2).map(decodeURIComponent).join('/');
+      const thisRequest = ++requestId;
+      const selectedImage = new Image();
+      selectedImage.src = link.href;
+      try {
+        await selectedImage.decode();
+      } catch (error) {
+        if (thisRequest === requestId) {
+          if (dialog.open) count.textContent = 'Could not load this photo.';
+          else window.location.assign(link.href);
+        }
+        return;
+      }
+      if (thisRequest !== requestId) return;
+      photoRatio = selectedImage.naturalWidth / selectedImage.naturalHeight;
+      fitPhoto();
+      selectedImage.className = 'lightbox-image';
+      selectedImage.alt = link.querySelector('img').alt;
+      image.replaceWith(selectedImage);
+      image = selectedImage;
+      count.textContent = (currentIndex + 1) + ' of ' + thumbnails.length;
+      caption.textContent = captions[photoKey] || '';
+      caption.hidden = !caption.textContent;
+      if (!dialog.open) {
+        dialog.showModal();
+        // Establish the transparent opening frame before starting the fade.
+        void dialog.offsetWidth;
+        dialog.classList.add('is-visible');
+      }
+    }
+
+    gallery.addEventListener('click', event => {
+      const link = event.target.closest('.photo-grid > a');
+      if (!link || event.defaultPrevented || event.button !== 0 ||
+          event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      event.preventDefault();
+      opener = link;
+      thumbnails = [...link.parentElement.querySelectorAll(':scope > a')];
+      albumHeading.textContent = link.closest('.photo-album').querySelector('h2').textContent;
+      controls.hidden = thumbnails.length < 2;
+      showPhoto(thumbnails.indexOf(link));
+    });
+
+    controls.addEventListener('click', event => {
+      const button = event.target.closest('[data-step]');
+      if (button) showPhoto(currentIndex + Number(button.dataset.step));
+    });
+
+    dialog.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      showPhoto(currentIndex + (event.key === 'ArrowLeft' ? -1 : 1));
+    });
+
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) closeViewer();
+    });
+
+    dialog.addEventListener('close', () => {
+      dialog.classList.remove('is-visible');
+      ++requestId;
+      opener?.focus();
+    });
   })();
 </script>
 
@@ -212,7 +539,7 @@
 
       <div class="footer-update-group">
         <p class="last-updated">
-          Updated: 11 August 2026.
+          Updated: 11 November 2026.
         </p>
 
         <a
