@@ -5,6 +5,10 @@ permalink: photos.html
 templateEngineOverride: njk,md
 ---
 
+<p class="photos-intro">
+  These short albums bring together photographs that I took in places around the world where I lived and traveled. They capture some of the interactions, emotions, communities, identities, and initiatives that I am grateful to have experienced and that I choose to remember.
+</p>
+
 <style>
   .photo-album { margin-block: 2rem; }
   .photo-grid {
