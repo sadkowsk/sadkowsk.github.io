@@ -54,8 +54,15 @@ templateEngineOverride: njk,md
 <script>
   const albums = [
     // { title: "Place · Year", folder: "subfolder", manifest: "album-index.json"},
-    { title: "Shandong Province, China · 2017", folder: "2017_daqingshan", manifest: "album-index.json", filesKey: "" },
+    // { title: "Xinjiang Autonomous Region, China · 2017", folder: "2017_xinjiang", manifest: "album-index.json", filesKey: "" },
+    { title: "Shandong, China · 2017", folder: "2017_daqingshan", manifest: "album-index.json", filesKey: "" },
+    // { title: "Multiple locations, Poland · 2014, 2015", folder: "2014-15_poland", manifest: "album-index.json", filesKey: "" },
+    // { title: "Minsk, Belarus · 2014, 2015", folder: "2014-15_minsk", manifest: "album-index.json", filesKey: "" },
+    { title: "Multiple locations, Senegal · 2014", folder: "2014_senegal", manifest: "album-index.json", filesKey: "" },
+    { title: "Kyiv, Ukraine · 2014", folder: "2014_kyiv", manifest: "album-index.json", filesKey: "" },
+    { title: "Jammu and Kashmir Union Territory, India · 2013", folder: "2013_kashmir", manifest: "album-index.json", filesKey: "" },
     { title: "Himachal Pradesh Province, India · 2013", folder: "2013_dharamsala", manifest: "album-index.json", filesKey: "" },
+    { title: "Multiple locations, Tanzania · 2012", folder: "2012_tanzania", manifest: "album-index.json", filesKey: "" },
   ];
 
   async function renderAlbum(album, section) {
