@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Photos | Karol Sadkowski</title>
+  <title>Photography | Karol Sadkowski</title>
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -96,10 +96,20 @@
   </header>
 
   <main>
-    <p class="photos-intro">
+    <h1>International Photography</h1>
+<p class="photos-intro">
   These short albums bring together photographs that I took in places around the world where I lived and traveled. They capture some of the interactions, emotions, communities, identities, and initiatives that I am grateful to have experienced and that I choose to remember.
 </p>
+<p class="photos-intro">
+  The inclusion of a photograph does not signal my endorsement of the views, actions, or affiliations depicted.
+</p>
 <style>
+  .photos-intro:has(+ .photos-intro) {
+    margin-bottom: 0.75rem;
+  }
+  .photos-intro + .photos-intro {
+    margin-top: 0;
+  }
   .photo-album { margin-block: 2rem; }
   .photo-grid {
     display: grid;
@@ -361,7 +371,7 @@
     border-top: 1px solid #ddddd5;
     color: #52534c;
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.35;
     white-space: pre-line;
     overflow-wrap: anywhere;
   }
@@ -402,9 +412,66 @@
 </dialog>
 <script>
   (() => {
-    // Optional captions keyed by "album-folder/filename".
+    // Captions keyed by "album-folder/filename":
+
     const captions = {
-      // "lisbon-2024/image1.jpg": "Add the location, date, or story here.",
+      "2017_daqingshan/arch.jpg": "Taken during my year in the Grinnell College — Nanjing University English Teaching Fellowship, when I briefly visited a Taichi community in Shandong Province.",
+      "2017_daqingshan/calligraphy.jpg": "Taken during my year in the Grinnell College — Nanjing University English Teaching Fellowship, when I briefly visited a Taichi community in Shandong Province.",
+      "2017_daqingshan/friends.jpg": "Taken during my year in the Grinnell College — Nanjing University English Teaching Fellowship, when I briefly visited a Taichi community in Shandong Province.",
+      "2017_daqingshan/run.jpg": "Taken during my year in the Grinnell College — Nanjing University English Teaching Fellowship, when I briefly visited a Taichi community in Shandong Province.",
+      "2017_daqingshan/yinyang.jpg": "Taken during my year in the Grinnell College — Nanjing University English Teaching Fellowship, when I briefly visited a Taichi community in Shandong Province.",
+
+      "2014_senegal/atelier.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/boat.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/ecole1.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/ecole2.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/interview.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/poste.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/radio.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/ride.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+      "2014_senegal/wrestle.jpg": "Taken during my semester of off-campus study as a Grinnell College undergraduate through the Minnesota Studies in International Development program at the University of Minnesota.",
+
+      "2014_kyiv/barricade.jpg": "Caption",
+      "2014_kyiv/camp.jpg": "Caption",
+      "2014_kyiv/drawings.jpg": "Caption",
+      "2014_kyiv/europe.jpg": "Caption",
+      "2014_kyiv/flags.jpg": "Caption",
+      "2014_kyiv/masks.jpg": "Caption",
+      "2014_kyiv/memorial.jpg": "Caption",
+      "2014_kyiv/piano.jpg": "Caption",
+      "2014_kyiv/stencil.jpg": "Caption",
+      "2014_kyiv/tires.jpg": "Caption",
+      "2014_kyiv/wellness.jpg": "Caption",
+
+      "2013_kashmir/fisherman.jpg": "Caption",
+      "2013_kashmir/friend.jpg": "Caption",
+      "2013_kashmir/guard.jpg": "Caption",
+      "2013_kashmir/house.jpg": "Caption",
+      "2013_kashmir/market.jpg": "Caption",
+      "2013_kashmir/school1.jpg": "Caption",
+      "2013_kashmir/school2.jpg": "Caption",
+      "2013_kashmir/sheep.jpg": "Caption",
+      "2013_kashmir/shop.jpg": "Caption",
+      "2013_kashmir/trust.jpg": "Caption",
+
+      "2013_dharamsala/basketball.jpg": "Caption",
+      "2013_dharamsala/bus.jpg": "Caption",
+      "2013_dharamsala/carrom.jpg": "Caption",
+      "2013_dharamsala/cricket.jpg": "Caption",
+      "2013_dharamsala/himalaya.jpg": "Caption",
+      "2013_dharamsala/limes.jpg": "Caption",
+      "2013_dharamsala/playground.jpg": "Caption",
+      "2013_dharamsala/street.jpg": "Caption",
+
+      "2012_tanzania/portrait1.jpg": "Caption",
+      "2012_tanzania/portrait2.jpg": "Caption",
+      "2012_tanzania/portrait3.jpg": "Caption",
+      "2012_tanzania/portrait4.jpg": "Caption",
+      "2012_tanzania/portrait5.jpg": "Caption",
+      "2012_tanzania/portrait6.jpg": "Caption",
+      "2012_tanzania/portrait7.jpg": "Caption",
+      "2012_tanzania/portrait8.jpg": "Caption",
+      "2012_tanzania/portrait9.jpg": "Caption",
     };
 
     const gallery = document.querySelector('#photo-albums');
