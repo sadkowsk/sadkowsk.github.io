@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Professional Values | Karol Sadkowski</title>
+  <title>Values | Karol Sadkowski</title>
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -59,14 +59,14 @@
         </a>
 
         <a
-          href="/values.html"
-          class=""
+          href="/professional-values.html"
+          class="active"
         >
           Values
         </a>
 
         <a
-          href="/photos.html"
+          href="/international-photography.html"
           class=""
         >
           Photos
@@ -96,322 +96,98 @@
   </header>
 
   <main>
-    <h1>Professional Values</h1>
-<p>Reflections on what matters to me, how experience has shaped my judgment, and what I’m still working out. These short essays explore how those values inform the choices I make and the responsibilities I take on.</p>
-<style>
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 22px;
-    margin: 28px 0;
+    <!-- START of construction redirect wrapper. -->
+  <style>
+  .construction-notice {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #fdfdfd;
+    color: #444;
   }
-  .values-grid > p:empty {
-  display: none;
+
+  .construction-notice h1 {
+    font-size: 1.5em;
+    margin: 0 0 20px;
   }
-  .values-grid .values-tile {
-    box-sizing: border-box;
-    appearance: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+
+  .construction-notice p {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  .construction-notice .illustration {
+    display: block;
     width: 100%;
+    max-width: 225px;
     height: auto;
-    min-height: 0;
-    aspect-ratio: 3 / 4;
-    padding: 22px 18px;
-    border: 1px solid #e7e4de;
-    border-radius: 3px;
-    background: #fdfcf9;
-    color: #090c02;
-    text-align: left;
-    font: inherit;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgb(0 0 0 / 5%);
-    transition: background .18s ease, border-color .18s ease,
-                transform .18s ease, box-shadow .18s ease;
+    margin: 30px auto 0;
   }
-  .values-grid .values-tile:hover {
-    background: #fff;
-    border-color: #c8c3b9;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgb(0 0 0 / 10%);
+
+  .construction-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    min-width: 150px;
+    color: #0073e6;
+    text-decoration: none;
+    border: 1px solid #0073e6;
+    border-radius: 5px;
+    text-align: center;
   }
-  .values-tile-title {
-    flex-shrink: 0;
-    position: relative;
-    min-height: calc(2 * 1.35em + 13px);
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.35;
+
+  .construction-link:hover {
+    background-color: #0073e6;
+    color: white;
   }
-  .values-tile-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: none;
-    width: 32px;
-    height: 1px;
-    background: #d8d3c9;
-  }
-  .values-tile-preview {
-    flex: 0 1 auto;
-    min-height: 0;
-    max-height: 6.2em;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    font-size: .78rem;
-    line-height: 1.55;
-    color: #66645e;
-    mask-image: linear-gradient(
-      to bottom,
-      #000 15%,
-      rgb(0 0 0 / 80%) 45%,
-      rgb(0 0 0 / 55%) 75%,
-      rgb(0 0 0 / 35%) 100%
-    );
-  }
-  .values-tile-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    width: 100%;
-    flex-shrink: 0;
-    margin-top: auto;
-    font-size: .72rem;
-    font-weight: 600;
-    line-height: 1.4;
-    color: #3c3c3b;
-  }
-  .values-tile:focus-visible, #values-dialog button:focus-visible {
-    outline: 2px solid #3c3c3b;
-    outline-offset: 3px;
-  }
-  #values-dialog {
-    box-sizing: border-box;
-    width: min(680px, calc(100vw - 32px));
-    max-width: none;
-    max-height: min(80dvh, 720px);
-    margin: auto;
-    padding: 0;
-    border: 0;
-    border-radius: 10px;
-    background: #fff;
-    color: #090c02;
-    box-shadow: 0 18px 55px rgb(0 0 0 / .32);
-    overflow: auto;
-    opacity: 0;
-    transform: translateY(12px) scale(.98);
-    transition: opacity .2s ease, transform .2s ease;
-  }
-  #values-dialog::backdrop {
-    background: rgb(9 12 2 / .58);
-    opacity: 0;
-    transition: opacity .2s ease;
-  }
-  #values-dialog.is-visible { opacity: 1; transform: none; }
-  #values-dialog.is-visible::backdrop { opacity: 1; }
-  #values-dialog .values-dialog-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 28px 30px 16px 38px;
-    background: #fff;
-  }
-  #values-dialog h2 {
-    flex: 1;
-    margin: 0;
-    font-size: 1.45rem;
-    line-height: 1.25;
-    text-align: left;
-  }
-  #values-dialog .values-close {
-    flex: 0 0 34px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: transparent;
-    color: #3c3c3b;
-    font-size: 1.7rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  #values-dialog .values-close:hover { background: #e8e5df; }
-  #values-dialog .values-body { padding: 0 38px 34px; text-align: left; }
-  #values-dialog .values-body p { margin: 0 0 16px; line-height: 1.6; }
-  #values-dialog .values-body p:last-child { margin-bottom: 0; }
-  html.values-dialog-open { overflow: hidden; }
+
   @media (max-width: 600px) {
-    #values-dialog .values-dialog-header { padding: 24px 20px 16px 24px; }
-    #values-dialog .values-body { padding: 0 24px 28px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #values-dialog, #values-dialog::backdrop, .values-grid .values-tile {
-      transition: none;
+    .construction-notice h1 {
+      font-size: 1.45em;
     }
-    .values-grid .values-tile:hover { transform: none; }
+
+    .construction-notice .illustration {
+      max-width: 250px;
+    }
   }
 </style>
-<div class="values-grid">
-<button class="values-tile" type="button" data-essay="values-essay-1" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Keeping learning within reach</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-1"><p>[Start with an experience that made continuity of learning feel personal.]</p></p>
-<p>[Reflect on what was at stake and how it shaped your thinking.]</p>
-</template>
-<button class="values-tile" type="button" data-essay="values-essay-2" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Listening before deciding</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-2"><p>[Describe a time another person's perspective challenged your assumptions.]</p></p>
-<p>[Explore how it affected what you did next.]</p>
-</template>
-<button class="values-tile" type="button" data-essay="values-essay-3" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Following through</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-3"><p>[Describe a commitment that became inconvenient or difficult to keep.]</p></p>
-<p>[Reflect on your choices and what you would handle differently now.]</p>
-</template>
-<button class="values-tile" type="button" data-essay="values-essay-4" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Building with people</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-4"><p>[Describe something you helped create with others.]</p></p>
-<p>[Explore how their priorities shaped the work and challenged your own.]</p>
-</template>
-<button class="values-tile" type="button" data-essay="values-essay-5" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Making room for uncertainty</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-5"><p>[Introduce a belief you have reconsidered or a question you have yet to resolve.]</p></p>
-<p>[Explain what challenged your thinking and what remains open.]</p>
-</template>
-<button class="values-tile" type="button" data-essay="values-essay-6" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Making work usable</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-6"><p>[Describe a time when something technically sound proved difficult for people to use. What did you initially overlook?]</p><p>[Reflect on how that experience changed your approach to designing tools, resources, or processes.]</p></template></p>
-<button class="values-tile" type="button" data-essay="values-essay-7" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Sharing responsibility</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-7"><p>[Recall a situation in which you had to decide what to handle yourself and what to entrust to others. What made that decision difficult?]</p><p>[Explore what you learned about trust, support, and giving people meaningful ownership of their work.]</p></template></p>
-<button class="values-tile" type="button" data-essay="values-essay-8" aria-haspopup="dialog" aria-controls="values-dialog">
-<span class="values-tile-title">Questioning success</span>
-<span class="values-tile-preview" aria-hidden="true"></span>
-<span class="values-tile-meta">
-<p><span>DD Mon. YYYY</span></p>
-<p><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-</span>
-</button>
-<template id="values-essay-8"><p>[Describe a project whose apparent success left you with unanswered questions. Whose experience did the usual measures capture, and whose did they miss?]</p><p>[Reflect on how you now judge whether your work has accomplished something worthwhile.]</p></template></p>
-</div>
-<dialog id="values-dialog" aria-labelledby="values-dialog-title">
-<div class="values-dialog-header">
-<h2 id="values-dialog-title" tabindex="-1"></h2>
-<button class="values-close" type="button" aria-label="Close essay"><span aria-hidden="true">&times;</span></button>
-</div>
-<div class="values-body"></div>
-</dialog>
+<section class="construction-notice" aria-labelledby="construction-heading">
+  <img
+    src="/assets/images/construction-eye.png"
+    alt="A claymation computer monitor with a large eyeball and magnifying glass"
+    class="illustration"
+  >
+  <h1 id="construction-heading">
+    This page is currently under construction.
+  </h1>
+  <p><em>Please check back later.</em></p>
+  <a href="/" class="construction-link" id="return-link">
+    Return to About
+    (<span id="return-seconds">10</span>)
+  </a>
+</section>
 <script>
   (() => {
-    const grid = document.querySelector('.values-grid');
-    const dialog = document.querySelector('#values-dialog');
-    const title = dialog.querySelector('h2');
-    const body = dialog.querySelector('.values-body');
-    let opener;
-    let closing = false;
+    const secondsDisplay = document.getElementById("return-seconds");
+    let seconds = 10;
 
-    for (const tile of grid.querySelectorAll('[data-essay]')) {
-      const content = document.getElementById(tile.dataset.essay).content;
-      const openingText = [...content.querySelectorAll('p')]
-        .map(paragraph => paragraph.textContent.trim()).join(' ');
-      tile.querySelector('.values-tile-preview').textContent = openingText || content.textContent.trim();
+    if (!secondsDisplay) {
+      return;
     }
 
-    grid.addEventListener('click', event => {
-      const tile = event.target.closest('[data-essay]');
-      if (!tile || closing) return;
-      opener = tile;
-      title.textContent = tile.querySelector('.values-tile-title').textContent;
-      body.replaceChildren(document.getElementById(tile.dataset.essay).content.cloneNode(true));
-      dialog.showModal();
-      dialog.scrollTop = 0;
-      document.documentElement.classList.add('values-dialog-open');
-      title.focus({ preventScroll: true });
-      void dialog.offsetWidth;
-      dialog.classList.add('is-visible');
-    });
+    const tick = () => {
+      seconds -= 1;
 
-    function closeEssay() {
-      if (closing || !dialog.open) return;
-      closing = true;
-      dialog.classList.remove('is-visible');
-      const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200;
-      setTimeout(() => {
-        dialog.close();
-        closing = false;
-      }, duration);
-    }
+      if (seconds <= 0) {
+        window.location.href = "/";
+        return;
+      }
 
-    dialog.querySelector('.values-close').addEventListener('click', closeEssay);
-    dialog.addEventListener('cancel', event => {
-      event.preventDefault();
-      closeEssay();
-    });
-    let backdropPress = false;
-    dialog.addEventListener('pointerdown', event => {
-      backdropPress = event.target === dialog;
-    });
-    dialog.addEventListener('click', event => {
-      if (backdropPress && event.target === dialog) closeEssay();
-      backdropPress = false;
-    });
-    dialog.addEventListener('close', () => {
-      document.documentElement.classList.remove('values-dialog-open');
-      dialog.classList.remove('is-visible');
-      opener?.focus({ preventScroll: true });
-    });
+      secondsDisplay.textContent = seconds;
+      window.setTimeout(tick, 1000);
+    };
+
+    window.setTimeout(tick, 1000);
   })();
 </script>
 
@@ -436,7 +212,7 @@
 
       <div class="footer-update-group">
         <p class="last-updated">
-          Updated: 17 November 2026.
+          Updated: 25 November 2026.
         </p>
 
         <a
