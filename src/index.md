@@ -24,8 +24,8 @@ permalink: index.html
         <li><a class="about-nav-link page-row" href="/" aria-current="page"><span>About:</span> <span class="page-equation">welcome + intent</span></a></li>
         <li><a class="about-nav-link page-row" href="/bio.html"><span>Bio:</span> <span class="page-equation">background + identity + free time</span></a></li>
         <li><a class="about-nav-link page-row" href="/projects.html"><span>Projects:</span> <span class="page-equation">sampled favorites</span></a></li>
-        <li><a class="about-nav-link page-row" href="/values.html"><span>Values:</span> <span class="page-equation">ideals + goals + character</span></a></li>
-        <li><a class="about-nav-link page-row" href="/photos.html"><span>Photos:</span> <span class="page-equation">related memories</span></a></li>
+        <li><a class="about-nav-link page-row" href="/professional-values.html"><span>Values:</span> <span class="page-equation">ideals + goals + character</span></a></li>
+        <li><a class="about-nav-link page-row" href="/international-photography.html"><span>Photos:</span> <span class="page-equation">related memories</span></a></li>
       </ul>
     </div>
   </div>
@@ -70,10 +70,10 @@ permalink: index.html
   .page-row[href="/bio.html"],
   body:has(.site-header nav a[href="/projects.html"]:hover)
   .page-row[href="/projects.html"],
-  body:has(.site-header nav a[href="/values.html"]:hover)
-  .page-row[href="/values.html"],
-  body:has(.site-header nav a[href="/photos.html"]:hover)
-  .page-row[href="/photos.html"] {
+  body:has(.site-header nav a[href="/professional-values.html"]:hover)
+  .page-row[href="/professional-values.html"],
+  body:has(.site-header nav a[href="/international-photography.html"]:hover)
+  .page-row[href="/international-photography.html"] {
     color: #ffd166;
   }
   /* Row hover highlights matching navbar button */
@@ -83,10 +83,10 @@ permalink: index.html
   .site-header nav a[href="/bio.html"],
   body:has(.page-row[href="/projects.html"]:hover)
   .site-header nav a[href="/projects.html"],
-  body:has(.page-row[href="/values.html"]:hover)
-  .site-header nav a[href="/values.html"],
-  body:has(.page-row[href="/photos.html"]:hover)
-  .site-header nav a[href="/photos.html"] {
+  body:has(.page-row[href="/professional-values.html"]:hover)
+  .site-header nav a[href="/professional-values.html"],
+  body:has(.page-row[href="/international-photography.html"]:hover)
+  .site-header nav a[href="/international-photography.html"] {
     color: #ffd166;
   }
   .about-footnote {

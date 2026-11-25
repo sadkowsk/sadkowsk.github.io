@@ -146,7 +146,7 @@
     border-top: 1px solid #ddddd5;
     color: #52534c;
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.35;
     white-space: pre-line;
     overflow-wrap: anywhere;
   }
@@ -189,9 +189,69 @@
 
 <script>
   (() => {
-    // Optional captions keyed by "album-folder/filename".
+    // Captions keyed by "album-folder/filename":
+
     const captions = {
-      // "lisbon-2024/image1.jpg": "Add the location, date, or story here.",
+      "2017_daqingshan/arch.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/calligraphy.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/friends.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/practice.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/run.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/yinyang.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/pause.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+      "2017_daqingshan/rock.jpg": "Taken during my fellowship year in Nanjing as a Grinnell College – Nanjing University English Teaching Fellow. I briefly visited a Taichi training community in Shandong Province.",
+
+      "2014_senegal/atelier.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/boat.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/ecole1.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/ecole2.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/interview.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/poste.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/radio.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/ride.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+      "2014_senegal/wrestle.jpg": "Taken during my semester of undergraduate off-campus study through the Minnesota Studies in International Development program by the University of Minnesota.",
+
+      "2014_kyiv/barricade.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/camp.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/drawings.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/europe.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/flags.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/masks.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/memorial.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/piano.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/stencil.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/tires.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+      "2014_kyiv/wellness.jpg": "Taken following the Euromaidan Revolution in Ukraine.",
+
+      "2013_kashmir/fisherman.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/friend.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/guard.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/house.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/market.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/school1.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/school2.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/sheep.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/shop.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+      "2013_kashmir/trust.jpg": "Taken around Dal Lake, Srinagar, after interning with EduCARE India in Himachal Pradesh.",
+
+      "2013_dharamsala/basketball.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/bus.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/carrom.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/cricket.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/himalaya.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/limes.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/playground.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+      "2013_dharamsala/street.jpg": "Taken during my time as a volunteer intern for EduCARE India, based primarily near Dharamsala.",
+
+      "2012_tanzania/portrait1.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait2.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait3.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait4.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait5.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait6.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait7.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait8.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
+      "2012_tanzania/portrait9.jpg": "Taken during my World Food Prize Borlaug-Ruan International Internship, with field placement in Arusha, Tanzania.",
     };
 
     const gallery = document.querySelector('#photo-albums');

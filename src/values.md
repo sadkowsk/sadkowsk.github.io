@@ -1,7 +1,7 @@
 ---
 layout: layout.njk
 title: Values
-permalink: values.html
+permalink: professional-values.html
 templateEngineOverride: njk,md
 ---
 

@@ -1,15 +1,27 @@
 ---
 layout: layout.njk
-title: Photos
-permalink: photos.html
+title: International Photography
+permalink: international-photography.html
 templateEngineOverride: njk,md
 ---
 
+<h1>International Photography</h1>
+
 <p class="photos-intro">
-  These short albums bring together photographs that I took in places around the world where I lived and traveled. They capture some of the interactions, emotions, communities, identities, and initiatives that I am grateful to have experienced and that I choose to remember.
+  These short albums bring together photographs that I took in countries where I lived and traveled. They capture some of the interactions, emotions, communities, identities, and initiatives that I am grateful to have experienced and that I choose to remember.
+</p>
+
+<p class="photos-intro">
+  The inclusion of a photograph does not signal my endorsement of the views, actions, or affiliations depicted.
 </p>
 
 <style>
+  .photos-intro:has(+ .photos-intro) {
+    margin-bottom: 0.75rem;
+  }
+  .photos-intro + .photos-intro {
+    margin-top: 0;
+  }
   .photo-album { margin-block: 2rem; }
   .photo-grid {
     display: grid;
@@ -59,7 +71,7 @@ templateEngineOverride: njk,md
   const albums = [
     // { title: "Place · Year", folder: "subfolder", manifest: "album-index.json"},
     // { title: "Xinjiang Autonomous Region, China · 2017", folder: "2017_xinjiang", manifest: "album-index.json", filesKey: "" },
-    { title: "Shandong, China · 2017", folder: "2017_daqingshan", manifest: "album-index.json", filesKey: "" },
+    { title: "Shandong Province, China · 2017", folder: "2017_daqingshan", manifest: "album-index.json", filesKey: "" },
     // { title: "Multiple locations, Poland · 2014, 2015", folder: "2014-15_poland", manifest: "album-index.json", filesKey: "" },
     // { title: "Minsk, Belarus · 2014, 2015", folder: "2014-15_minsk", manifest: "album-index.json", filesKey: "" },
     { title: "Multiple locations, Senegal · 2014", folder: "2014_senegal", manifest: "album-index.json", filesKey: "" },
